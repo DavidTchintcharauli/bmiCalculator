@@ -1,73 +1,116 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: linear-gradient(to right, #ff7e5f, #feb47b);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #444;
 }
 
 .container {
     background: white;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    max-width: 400px;
+    width: 100%;
 }
 
 h1 {
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 30px;
+    color: #444;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 .calculator {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .calculator label {
-    margin-top: 10px;
+    margin-top: 15px;
     font-weight: bold;
+    font-size: 1.1em;
+    width: 100%;
+    text-align: left;
 }
 
 .calculator input {
     margin-top: 5px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 200px;
-    transition: border 0.3s ease;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .calculator input:focus {
     border-color: #ff7e5f;
+    box-shadow: 0 0 8px rgba(255, 126, 95, 0.5);
 }
 
 button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    margin-top: 30px;
+    padding: 12px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     background: #ff7e5f;
     color: white;
-    font-size: 16px;
+    font-size: 1.2em;
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 10px rgba(255, 126, 95, 0.3);
 }
 
 button:hover {
     background: #feb47b;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 .result {
-    margin-top: 20px;
-    font-size: 18px;
+    margin-top: 25px;
+    font-size: 1.2em;
     color: #333;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.result.underweight {
+    color: #ffb347;
+    background: #fff4e6;
+}
+
+.result.normal {
+    color: #4caf50;
+    background: #e8f5e9;
+}
+
+.result.overweight {
+    color: #ff9800;
+    background: #fff3e0;
+}
+
+.result.obesity {
+    columns: #f44336;
+    background: #ffebee;
 }
 
 @keyframes fadeIn {
