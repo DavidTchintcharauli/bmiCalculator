@@ -109,8 +109,16 @@ button:active {
 }
 
 .result.obesity {
-    columns: #f44336;
+    color: #f44336;
     background: #ffebee;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 @keyframes fadeIn {

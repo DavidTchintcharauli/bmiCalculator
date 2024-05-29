@@ -2,8 +2,26 @@ function calculateBMI() {
     let height = document.getElementById('height').value
     let weight = document.getElementById('weight').value
     let resultDiv = document.getElementById('result')
+    let heightError = document.getElementById('height-error')
+    let weightError = document.getElementById('weight-error')
 
-    if (height > 0 && weight > 0) {
+    let isValid = true
+
+    heightError.textContent = ''
+    weightError.textContent = ''
+    resultDiv.style.opacity = 0
+
+    if (height < 50 || height > 220) {
+        heightError.textContent = 'Height must be between 50 cm and 220 cm'
+        isValid = false
+    }
+
+    if (weight < 20 || weight > 250) {
+        weightError.textContent = 'weight must be between 20 kg and 250 kg'
+        isValid = false
+    }
+
+    if (isValid) {
         let heightInMeters = height / 100
         let bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2)
 
@@ -25,10 +43,6 @@ function calculateBMI() {
 
         resultDiv.innerHTML = `Your BMI is ${bmi} (${category})`
         resultDiv.className = 'result ' + colorClass
-        resultDiv.style.opacity = 1
-    } else {
-        resultDiv.innerHTML = 'Pleasure Enter valid height and weight'
-        resultDiv.className = 'result'
         resultDiv.style.opacity = 1
     }
 }
